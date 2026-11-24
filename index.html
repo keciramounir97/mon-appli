@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Mon Application🍕</h1>
+
+    <div class="app-layout">
+      <aside class="card sidebar">
+        <div class="tabs">
+          <button
+            type="button"
+            class="tab-btn active"
+            id="tab-btn1"
+            onclick="SwitchTab(this, 'tab-horloge')"
+          >
+            Horloge
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            id="tab-btn2"
+            onclick="SwitchTab(this, 'tab-minuteur')"
+          >
+            Minuteur
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            id="tab-btn3"
+            onclick="SwitchTab(this, 'tab-chrono')"
+          >
+            Chrono
+          </button>
+        </div>
+
+        <div class="tab-content active" id="tab-horloge">
+          <div class="display-time" id="clockDisplay">00:00:00</div>
+        </div>
+
+        <div class="tab-content" id="tab-minuteur">
+          <div class="display-time" id="timerDisplay">00:00</div>
+          <div class="controls">
+            <input
+              type="number"
+              id="timerInput"
+              placeholder="Secondes"
+              min="1"
+            />
+            <button
+              type="button"
+              class="tool-btn"
+              id="tool-btn1"
+              onclick="startTimer()"
+            >
+              Go
+            </button>
+            <button
+              type="button"
+              class="tool-btn reset"
+              id="tool-btn2"
+              onclick="resetTimer()"
+            >
+              Stop
+            </button>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-chrono">
+          <div class="display-time" id="chronoDisplay">0s</div>
+          <div class="controls">
+            <button
+              type="button"
+              class="tool-btn"
+              id="tool-btn-chrono1"
+              onclick="startChrono()"
+            >
+              Start
+            </button>
+            <button
+              type="button"
+              class="tool-btn"
+              id="tool-btn-chrono2"
+              onclick="stopChrono()"
+            >
+              Stop
+            </button>
+            <button
+              type="button"
+              class="tool-btn reset"
+              id="tool-btn-chrono3"
+              onclick="resetChrono()"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="card">
+        <div class="tabs">
+          <button type="button" class="tab-btn active" onclick="SwitchTab(this,'vue-notes')">Notes</button>
+          <button type="button" class="tab-btn" onclick="SwitchTab(this,'vue-taches')" >Taches</button>
+        </div>
+        <div id="vue-notes" class="tab-content active">
+        <div class="input-group">
+          <input
+            type="text"
+            id="noteInput"
+            placeholder="Ecrire une note ...."
+          />
+          <button type="button" class="add" id="addBtn">Ajouter</button>
+        </div>
+        <ul class="myList" id="notesList"></ul>
+      </div>
+
+      <div id="vue-taches" class="tab-content" style="display: none">
+        <div class="input-group">
+          <input type="text" id="taskInput" placeholder="Nouvelle Tâche ...." />
+          <button id="addTaskBtn">Ajouter</button>
+        </div>
+        <ul id="tasksList"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
